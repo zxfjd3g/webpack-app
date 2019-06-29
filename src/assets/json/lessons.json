@@ -1,0 +1,38 @@
+[
+  {
+    "name": "ES5/6/7",
+    "days": 2
+  },
+  {
+    "name": "JS高级",
+    "days": 3
+  },
+  {
+    "name": "JS模块化",
+    "days": 1.5
+  },
+  {
+    "name": "react全家桶",
+    "days": 4
+  },
+  {
+    "name": "react全栈项目",
+    "days": 6
+  },
+  {
+    "name": "vue全家桶",
+    "days": 4
+  },
+  {
+    "name": "vue项目",
+    "days": 6
+  },
+  {
+    "name": "webpack模块化打包",
+    "days": 2
+  },
+  {
+    "name": "项目实战",
+    "days": 7
+  }
+]
