@@ -25,7 +25,7 @@ app.listen(3030, (err) => {
   if (!err) {
     console.log('server listen 3030');
     setTimeout(() => {
-      // openDefaultBrowser('http://localhost:3030');
+      openDefaultBrowser('http://localhost:3030');
     }, 1000);
   } else {
     console.error(err);
