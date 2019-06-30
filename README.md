@@ -1,18 +1,22 @@
-# 自定义webpack项目(vue基础版)
+# 自定义webpack项目(vue升级版)
 
 ## 1. 重要目标
     1). 通用
-      模块预加载
       整合简化配置
+
     2). 开发环境
+      使用proxyaxios请求跨域解决
       
     3). 生产环境
       打包文件分析
+      使用postcss给特定样式加上厂商前缀
+      开启gzip压缩
 
       
 ## 2. 下载相关包
     vue
     vue-router
+    axios
     vue-loader
     vue-template-compiler
     eslint-loader
