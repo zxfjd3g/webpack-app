@@ -2,9 +2,11 @@
 基础配置
 */
 const CopyPlugin = require('copy-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const utils = require('./utils')
 
 module.exports = {
+
   // 入口
   entry: {
     app: './src/main.js'
@@ -21,7 +23,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     // 引入模块的别名
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm.js', // 配置 vue 指向es module的版本
+      // vue$: 'vue/dist/vue.runtime.esm.js', // 配置 vue 指向es module的版本
       '@': utils.resolve('src'), // 配置 @ 指向 src
     },
   },
@@ -35,6 +37,24 @@ module.exports = {
         use: 'babel-loader',
         include: utils.resolve('src'),
       },
+
+      // 处理vue
+{
+  test: /\.vue$/,
+  use: [{
+    loader: 'vue-loader',
+    options: {
+      // 将vue模板中的标签属性引入模板转换为require引入
+      transformToRequire: { 
+        video: ['src', 'poster'],
+        source: 'src',
+        img: 'src',
+        image: 'xlink:href',
+      },
+    },
+  }, ],
+  include: utils.resolve('src'),
+},
       // img
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -61,7 +81,7 @@ module.exports = {
           limit: 10240,
           name: 'fonts/[name].[hash:7].[ext]',
         },
-      }
+      },
     ]
   },
 
@@ -72,5 +92,7 @@ module.exports = {
       from: utils.resolve('static'),
       to: utils.resolve('dist/static'),
     }, ]),
+    // 加载vue插件
+    new VueLoaderPlugin()
   ]
 }

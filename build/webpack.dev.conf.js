@@ -1,6 +1,8 @@
 /* 
 开发环境配置
 */
+const utils = require('./utils')
+const webpack = require('webpack')
 const merge = require('webpack-merge') // 合并配置的
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成HTML的
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin') // 友好打包输出提示的
@@ -19,22 +21,33 @@ const devConfig = merge(baseConfig, {
   // 模块加载器
   module: {
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: utils.resolve('src'),
+        options: {
+          formatter: require('eslint-friendly-formatter'), // eslint 友好提示
+          emitWarning: true,
+        },
+      },
+
       // 加载css
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['vue-style-loader', 'css-loader']
       },
 
       // 加载less
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        use: ['vue-style-loader', 'css-loader', 'less-loader']
       },
 
       // 加载stylus
       {
         test: /\.styl(us)?$/,
-        use: ['style-loader', 'css-loader', 'stylus-loader']
+        use: ['vue-style-loader', 'css-loader', 'stylus-loader']
       }
     ]
   },
@@ -48,6 +61,7 @@ const devConfig = merge(baseConfig, {
     port: '8888', // 端口号
     open: true, // 自动打开浏览器访问
     quiet: true, // 不输出打包信息
+    hot: true, // 开启HMR
   },
 
   // 插件
@@ -60,7 +74,9 @@ const devConfig = merge(baseConfig, {
     }),
 
     // 友好的打包输出提示
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    // HMR插件
+    new webpack.HotModuleReplacementPlugin(),
   ],
 })
 
