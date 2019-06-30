@@ -23,7 +23,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     // 引入模块的别名
     alias: {
-      // vue$: 'vue/dist/vue.runtime.esm.js', // 配置 vue 指向es module的版本
+      vue$: 'vue/dist/vue.runtime.esm.js', // 配置 vue 指向es module的版本
       '@': utils.resolve('src'), // 配置 @ 指向 src
     },
   },

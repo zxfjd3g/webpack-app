@@ -21,7 +21,7 @@ const prodConfig = merge(baseConfig, {
   },
 
   // 生成sourcemap文件
-  devtool: 'cheap-source-map',
+  devtool: 'cheap-module-source-map',
 
   // 优化
   optimization: {
