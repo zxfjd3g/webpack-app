@@ -25,5 +25,5 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'vue/script-indent': 'off',
     'vue/html-indent': 'off',
-  }
+  },
 }
