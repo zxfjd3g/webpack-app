@@ -9,8 +9,6 @@ const baseConfig = require('./webpack.base.conf')
 
 const prodConfig = merge(baseConfig, {
   
-  bail: true, // 出现错误立即停止打包
-
   // 生成sourcemap文件
   devtool: 'cheap-module-source-map',
 

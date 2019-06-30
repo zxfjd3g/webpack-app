@@ -27,6 +27,15 @@ const devConfig = merge(baseConfig, {
     quiet: true, // 不输出打包信息
     hot: true, // 开启HMR
     overlay: true, // 在页面上显示错误信息
+    proxy: {
+      '/api': {
+        target: 'https://api.github.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
 
   // 插件

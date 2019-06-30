@@ -13,8 +13,14 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import axios from 'axios'
   export default {
-
+    mounted() {
+      axios.get('/api/search/repositories?q=v&sort=stars')
+        .then(response => {
+          console.log('---', response.data)
+        })  
+    }
   }
 </script>
 
