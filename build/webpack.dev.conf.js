@@ -58,7 +58,7 @@ const devConfig = merge(baseConfig, {
   // 开发服务器
   devServer: {
     host: 'localhost', // 主机名
-    port: '8888', // 端口号
+    port: '8889', // 端口号
     open: true, // 自动打开浏览器访问
     quiet: true, // 不输出打包信息
     hot: true, // 开启HMR

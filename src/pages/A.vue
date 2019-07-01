@@ -1,12 +1,13 @@
 <template>
     <div>
-        <h2>A Component UI</h2>
+        <h2>A Component UI22222</h2>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-  };
+
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>

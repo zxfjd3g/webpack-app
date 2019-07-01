@@ -39,22 +39,22 @@ module.exports = {
       },
 
       // 处理vue
-{
-  test: /\.vue$/,
-  use: [{
-    loader: 'vue-loader',
-    options: {
-      // 将vue模板中的标签属性引入模板转换为require引入
-      transformToRequire: { 
-        video: ['src', 'poster'],
-        source: 'src',
-        img: 'src',
-        image: 'xlink:href',
+      {
+        test: /\.vue$/,
+        use: [{
+          loader: 'vue-loader',
+          options: {
+            // 将vue模板中的标签属性引入模板转换为require引入
+            transformToRequire: { 
+              video: ['src', 'poster'],
+              source: 'src',
+              img: 'src',
+              image: 'xlink:href',
+            },
+          },
+        }],
+        include: utils.resolve('src'),
       },
-    },
-  }, ],
-  include: utils.resolve('src'),
-},
       // img
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
